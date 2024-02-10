@@ -19,10 +19,11 @@
         //check if there are assignments listed by checking the element class that holds assignment list
         const assignmentExists = document.getElementsByClassName("assignment_group");
         //get the elements that hold assignment information
-        scrapeAssignments();
+        
 
         if(assignmentExists){
             //logic to scrape information of all assignments
+            scrapeAssignments();
 
         }
         else{
