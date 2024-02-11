@@ -63,4 +63,13 @@ document.addEventListener("DOMContentLoaded", async ()=>{
             extensionPage.innerHTML = '<div class = "title"> This is not a Canvas assignments page </div>' 
         }
     }
+    //event to open full page html when clicked
+    const openFullPageButton = document.getElementById('openFullPage');
+    openFullPageButton.addEventListener('click',()=>{
+        chrome.tabs.create({'url':chrome.runtime.getURL('fullpage.html')});
+    }, false);
+})
+
+document.addEventListener('DOMContentLoaded', ()=>{
+    
 })
