@@ -1,0 +1,132 @@
+body {
+    margin: 0;
+    padding: 0;
+    background: #000080; /* Navy background for the whole page */
+    font-family: 'Trebuchet MS', sans-serif;
+    color: white;
+}
+
+#mainContainer {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    text-align: center; /* Centering the content */
+}
+
+#coursesContainer {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); /* Creates a responsive grid */
+    gap: 20px; /* Space between cards */
+    margin-bottom: 30px; /* Space before the button */
+}
+
+.course-card {
+    background-color: rgba(255, 255, 255, 0.1); /* Semi-transparent card background */
+    backdrop-filter: blur(10px); /* Blur effect on the background */
+    border: 1px solid #fff; /* White border */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px #fff, 0 0 20px #9acd32; /* Glow effect with neon green */
+    position: relative; /* For pseudo-element positioning */
+}
+
+.course-card h2 {
+    font-size: 1.5em;
+    margin-bottom: 1em;
+    text-shadow: 0 0 5px #9acd32; /* Neon text glow effect */
+}
+
+.assignments-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.assignment-item {
+    background-color: rgba(0, 0, 128, 0.8); /* Slightly transparent navy */
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    box-shadow: inset 0 0 5px #7b68ee; /* Inner glow effect */
+    border: 1px solid #7b68ee; /* Border with a lighter shade */
+}
+
+.assignment-item h3 {
+    font-size: 1.2em;
+    margin-bottom: 0.5em;
+    color: #adff2f; /* Bright color for titles */
+    text-shadow: 0 0 5px #9acd32; /* Neon-like glow */
+}
+
+.assignment-item p {
+    font-size: 0.9em;
+    margin: 0.5em 0;
+    color: #eee; /* Light text color for details */
+    text-shadow: 0 0 5px #9acd32; /* Neon-like glow for text */
+}
+
+/* Main container styling*/
+#mainContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centers content horizontally */
+    justify-content: start; /* Aligns content to the top */
+    padding: 20px;
+    gap: 20px; /* Adds space between children */
+}
+
+/* Button styling */
+#mainContainer button {
+    padding: 10px 25px;
+    background: #000080; /* Navy color */
+    color: white;
+    border: 2px solid white;
+    border-radius: 5px;
+    font-family: 'Trebuchet MS', sans-serif;
+    font-size: 16px;
+    text-transform: uppercase;
+    cursor: pointer;
+    box-shadow: 0 0 10px #fff, 0 0 20px #fff; /* White glow effect */
+    text-shadow: 0 0 5px #9acd32; /* Neon text glow effect */
+    transition: all 0.3s ease;
+    display: inline-block; /* Allows margin to be applied properly */
+    margin-bottom: 20px; /* Spacing after button */
+}
+
+#mainContainer button:hover {
+    background: #00008B; /* Slightly lighter navy for hover */
+    box-shadow: 0 0 15px #fff, 0 0 25px #fff; /* Enhanced white glow effect on hover */
+}
+
+#mainContainer button:active {
+    background: #000060; /* Even lighter navy for active state */
+    box-shadow: 0 0 5px #fff, 0 0 10px #fff; /* Smaller shadow for a "pressed" effect */
+}
+
+/* Typewriter effect styling */
+.typewriter {
+    font-family: 'Courier New', monospace;
+    white-space: pre-wrap; /* Allows text to wrap and respects new lines */
+    overflow-wrap: break-word; /* Ensures long words do not cause overflow */
+    max-height: 300px; /* Set a max height to constrain the content */
+    overflow-y: auto; /* Adds a scrollbar if content exceeds max height */
+    border-right: 3px solid;
+    padding: 20px;
+    margin: 20px 0; /* Adjust spacing around the response container */
+    background: rgba(0, 0, 0, 0.8); /* Optional: Adds a background for readability */
+    color: #0f0; /* Retro green text color for the retro-futuristic theme */
+    border-radius: 5px; /* Softens the edges of the container */
+    box-shadow: 0 0 10px #9acd32, 0 0 20px #9acd32; /* Glow effect to match theme */
+}
+
+
+@keyframes typing {
+    from { width: 0; }
+    to { width: 100%; }
+}
+
+/* Typewriter cursor effect */
+@keyframes blink-caret {
+  from, to { border-color: transparent; }
+  50% { border-color: black; }
+}
