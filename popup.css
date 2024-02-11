@@ -1,29 +1,54 @@
 .container {
     width: 280px;
-    color: #7b6f49;
-  }
-  
-  .title {
-    font-size: 14px;
+    background: #000080; /* Navy color for the background */
+    color: white;
+    border: 2px solid white;
+    border-radius: 5px;
+    padding: 10px;
+    box-shadow: 0 0 10px #fff, 0 0 20px #fff; /* White glow effect */
+    font-family: 'Trebuchet MS', sans-serif;
+}
+.icon {
+    height: 20px; /* Adjust the size as needed */
+    width: 20px; /* Adjust the size as needed */
+    vertical-align: middle; /* Aligns icon with the text */
+    margin-right: 8px; /* Adds some space between the icon and the title text */
+}
+.title {
+    display: flex; /* Use flexbox to align items in a row */
+    align-items: center; /* Centers items vertically */
+    font-size: 18px; /* Slightly larger to stand out */
     font-weight: bold;
     padding: 8px;
-  }
-  
-  .textbox {
-    width: 100%;
-    font-size: 12px;
-    margin: 0;
-    padding: 0px 2px;
-  }
-  
-  .textbox:focus {
-    outline: 0;
-    border-color: #66afe9;
-  }
-  
-  .bookmarks {
-    margin: 5px 5px;
-    padding: 3px;
-  }
-  
-  
+    text-shadow: 0 0 5px #9acd32; /* Neon text glow effect, can adjust color */
+    border-bottom: 1px solid #7b68ee; /* Subtle separator styled with a lighter navy */
+    margin-bottom: 10px;
+}
+
+.assignments {
+    background: rgba(255, 255, 255, 0.1); /* Slight white overlay for contrast */
+    border-radius: 4px;
+    padding: 5px;
+    margin-bottom: 10px;
+}
+
+.assignment {
+    background: rgba(0, 0, 128, 0.8); /* Slightly transparent navy */
+    border: 1px solid #7b68ee; /* Border with a lighter shade */
+    padding: 5px;
+    margin-bottom: 5px;
+    border-radius: 4px;
+    box-shadow: inset 0 0 5px #7b68ee; /* Inner glow effect */
+}
+
+.assignment-title {
+    font-size: 14px; /* Readable font size for assignment titles */
+    color: #adff2f; /* Bright color for the title to stand out */
+    text-shadow: 0 0 5px #9acd32; /* Neon-like glow for the title */
+}
+
+/* Additional styles for hover effects on assignments, if desired */
+.assignment:hover {
+    background: rgba(0, 0, 128, 1); /* Less transparent on hover */
+    box-shadow: inset 0 0 10px #7b68ee; /* Stronger inner glow effect on hover */
+}
