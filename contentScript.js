@@ -22,11 +22,11 @@
             chrome.storage.sync.get(currentCourse, (data)=>{
                 if(data[currentCourse]){
                     resolve(data[currentCourse]);
-                    console.log("Retrieved: ", data[courseId]);
+                    console.log("Retrieved: ", data[currentCourse]);
                 }
                 else{
                     resolve({});
-                    console.log("No data for this course",courseId);
+                    console.log("No data for this course",currentCourse);
                 }
             })
         })
