@@ -1,0 +1,29 @@
+.container {
+    width: 280px;
+    color: #7b6f49;
+  }
+  
+  .title {
+    font-size: 14px;
+    font-weight: bold;
+    padding: 8px;
+  }
+  
+  .textbox {
+    width: 100%;
+    font-size: 12px;
+    margin: 0;
+    padding: 0px 2px;
+  }
+  
+  .textbox:focus {
+    outline: 0;
+    border-color: #66afe9;
+  }
+  
+  .bookmarks {
+    margin: 5px 5px;
+    padding: 3px;
+  }
+  
+  

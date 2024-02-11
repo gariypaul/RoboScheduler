@@ -3,13 +3,13 @@
     "version": "0.1.0",
     "description": "Sync Canvas Assignments to AI Scheduling Calendar",
     "permissions": ["storage", "tabs"],
-    "host_permissions": ["https://*.canvas.*/*"],
+    "host_permissions": ["https://canvas.ou.edu/*"],
     "background": {
       "service_worker": "background.js"
     },
     "content_scripts": [
       {
-        "matches": ["https://*.canvas.*/*"],
+        "matches": ["https://canvas.ou.edu/*"],
         "js": ["contentScript.js"]
       }
     ],
@@ -21,7 +21,7 @@
           "assets/delete.png",
           "assets/save.png"
         ],
-        "matches": ["https://*.canvas.*/*"]
+        "matches": ["https://canvas.ou.edu/*"]
       }
     ],
     "action": {
@@ -34,4 +34,5 @@
       "default_popup": "popup.html"
     },
     "manifest_version": 3
-}
+  }
+  

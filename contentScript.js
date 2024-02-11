@@ -7,10 +7,11 @@
     //receive the message from background.js
     chrome.runtime.onMessage.addListener((obj,sender,response)=>{
         const {type,value,courseID} = obj;
-        console.log(URLSearchParams)
+        console.log(courseID);
         if(type === "NEW"){
             currentCourse = courseID;
             newCourseOpened();
+            console.log("New opened");
         }
     });
 
