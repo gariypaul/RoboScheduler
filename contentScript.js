@@ -2,17 +2,17 @@
     //set the current courseId number
     let currentCourse = "";
     //data structure to hold assignments scanned 
-    const courseAssignments = {}
+    let courseAssignments = {};
 
     //receive the message from background.js
-    chrome.runtime.onMessage.addListener((obj,sender,response)=>{
-        const {type,value,courseID} = obj;
-        console.log(courseID);
-        if(type === "NEW"){
-            currentCourse = courseID;
+    chrome.runtime.onMessage.addListener((obj, sender, response) => {
+        const { type, value, courseID } = obj;
+        console.log("entered receiver");
+        if (type === "NEW") {
+            currentCourse= courseID;
             newCourseOpened();
-            console.log("New opened");
         }
+        console.log(courseAssignments);
     });
 
     //function on logic to follow when a valid assignments page is opened
@@ -22,13 +22,10 @@
         //get the elements that hold assignment information
         
 
-        if(assignmentExists){
+        if(assignmentExists.length>0){
             //logic to scrape information of all assignments
             scrapeAssignments();
 
-        }
-        else{
-            //logic to set popup to warn that no assignments exist
         }
     }
    
@@ -66,7 +63,7 @@
    //function to parse assignment element from webpage with logic to do extraction of necessary information
    const parseAssignmentInfo = (assignmentElement) => {
         //this extracts the assignment title 
-        const titleElement = assignmentElement.querySelector("ig-title");
+        const titleElement = assignmentElement.querySelector(".ig-title");
         const title = titleElement.textContent.trim();
         const url = titleElement.getAttribute("href");
 
@@ -90,5 +87,5 @@
         };
    }
 
-    
-})
+   
+})();

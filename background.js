@@ -15,7 +15,8 @@ chrome.tabs.onUpdated.addListener((tabId, changeInfo, tab) => {
             // Extract the courseId
             const courseId = pathSegments[courseIDIndex];
             // Send course ID data over Chrome API
-            console.log(courseId);
+            console.log(courseId, tabId);
+            //send message to contentScript 
             chrome.tabs.sendMessage(tabId, {
                 type: "NEW",
                 courseID: courseId,
