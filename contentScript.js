@@ -4,6 +4,7 @@
     //data structure to hold assignments scanned 
     let courseAssignments = {};
 
+
     //receive the message from background.js
     chrome.runtime.onMessage.addListener((obj, sender, response) => {
         const { type, value, courseID } = obj;
@@ -12,16 +13,34 @@
             currentCourse= courseID;
             newCourseOpened();
         }
-        console.log(courseAssignments);
     });
 
+
+    //function to asychronously fetch all assignemnts from chrome storage for the extension
+    const fetchAssignments = ()=>{
+        return new Promise((resolve)=>{
+            chrome.storage.sync.get(currentCourse, (data)=>{
+                if(data[currentCourse]){
+                    resolve(data[currentCourse]);
+                    console.log("Retrieved: ", data[courseId]);
+                }
+                else{
+                    resolve({});
+                    console.log("No data for this course",courseId);
+                }
+            })
+        })
+    }
+
     //function on logic to follow when a valid assignments page is opened
-    const newCourseOpened = ()=>{
+    const newCourseOpened = async ()=>{
         //check if there are assignments listed by checking the element class that holds assignment list
         const assignmentExists = document.getElementsByClassName("assignment_group");
-        //get the elements that hold assignment information
         
-
+        //add already stored bookmarks first
+        courseAssignments[currentCourse] = await fetchAssignments();
+        
+        //get the elements that hold assignment information
         if(assignmentExists.length>0){
             //logic to scrape information of all assignments
             scrapeAssignments();
@@ -30,7 +49,7 @@
     }
    
     //function to scrape for all assignment details in the page
-   const scrapeAssignments = ()=>{
+   const scrapeAssignments = async ()=>{
     //get all nodes that are in the class .ig-info which holds the assignment information on canvas
     const assignments = document.querySelectorAll(".ig-info");
     
@@ -55,6 +74,9 @@
             }
             //add the assignment to the dictionary with a dictonary for its own id (this is to make sure we can access assignment info in constant time with hashing)
             courseAssignments[courseId][assignmentId] = assignmentInfo;
+            chrome.storage.sync.set({
+                [courseId]:courseAssignments[courseId]
+            });
         }
     })
 
